@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="col-xs-12"
+         style="height:50px;"></div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <img class="img-responsive"
+                         alt="Blank Image"
+                         src="../../assets/img/img.png">
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <form name="signupForm"
+                              ng-submit="signup.submitForm(signupForm)"
+                              role="form"
+                              novalidate>
+                            <div class="form-group">
+                                <input type="email"
+                                       name="email"
+                                       id="email"
+                                       class="form-control"
+                                       placeholder="E-mail"
+                                       ng-model="signup.user.email"
+                                       ng-maxlength="254"
+                                       validate-email
+                                       required/>
+                                <span ng-show="signupForm.email.$dirty && signupForm.email.$error.required"
+                                      class="has-error">Please enter your email address</span>
+                                <span ng-show="signupForm.email.$error.email"
+                                      class="has-error">Please enter valid email address, such as inigo.montoya@gmail.com</span>
+                            </div>
+                            <div class="form-group"
+                                 ng-class="{ 'has-error': signupForm.password.$dirty && signupForm.password.$error.required }">
+                                <input type="password"
+                                       name="password"
+                                       id="password"
+                                       class="form-control"
+                                       ng-model="signup.user.password"
+                                       ng-minlength="7"
+                                       ng-maxlength="15"
+                                       maxlength="15"
+                                       validate-password
+                                       required
+                                       placeholder="Password" />
+                                <span ng-show="signupForm.password.$dirty && signupForm.password.$error.required"
+                                      class="has-error">Please enter password</span>
+                                <span ng-show="!signupForm.password.$error.required && signupForm.password.$error.minlength"
+                                      class="has-error">Minimum 7 characters are required.</span>
+                                <span ng-show="!signupForm.password.$error.required && !signupForm.password.$error.minlength && signupForm.password.$error.validatePassword"
+                                      class="has-error">Your password must contain at least one of each of the following: lowercase and uppercase letters, a number and a special character</span>
+                            </div>
+                            <div class="form-group"
+                                 ng-class="{ 'has-error': signupForm.confirmPassword.$dirty && signupForm.confirmPassword.$error.required }">
+                                <input type="password"
+                                       name="confirmPassword"
+                                       id="confirmPassword"
+                                       class="form-control"
+                                       ng-model="signup.user.confirmPassword"
+                                       compare-to="signup.user.password"
+                                       maxlength="15"
+                                       required
+                                       placeholder="Re-Type Password" />
+                                <span ng-show="signupForm.password.$valid && !signupForm.confirmPassword.$error.required && signupForm.confirmPassword.$error.compareTo"
+                                      class="has-error">Password and Re-type password don't match</span>
+                                <span ng-show="signupForm.confirmPassword.$dirty && signupForm.confirmPassword.$error.required"
+                                      class="has-error">Please enter Re-type password</span>
+                            </div>
+                            <div ng-messages="signupForm.confirmPassword.$error"
+                                 ng-messages-include="error"></div>
+                            <div class="col-xs-12"
+                                 style="height:40px;"></div>
+                            <div class="form-actions">
+                                <button type="submit"
+                                        ng-disabled="signupForm.$invalid"
+                                        class="btn btn-primary margin-right-20 signup">Sign Up</button>
+                                <button class="btn btn-primary signup margin-left-10">Start Trial</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

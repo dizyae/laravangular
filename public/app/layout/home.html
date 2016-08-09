@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!--Example Directive-->
+    <!-- <psa-simple-navbar important-date="'July 13, 2305'"></psa-simple-navbar> -->
+
+    <div class="content">
+
+        <!--Example Content-->
+        <a href="#" ng-click="home.login()">login</a>
+        <a href="#" ng-click="home.logout()">logout</a>
+        <h1>{{ home.example.title }}</h1>
+        <h4>{{ home.example.message }}</h4>
+        <h4>Cool national flags:</h4>
+        <ul class="list-group">
+            <li ng-repeat="flag in home.flagsUrls"
+                class="list-group-item">
+                <img ng-src="{{ flag }}" height="{{ home.height }}">
+            </li>
+        </ul>
+
+        <!--End of Example Content-->
+
+    </div>
+</div>
